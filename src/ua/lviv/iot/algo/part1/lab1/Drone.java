@@ -27,10 +27,10 @@ public class Drone {
         this.currentAltitude = altitude;
     }
     public void chargeBattery(double amount) {
-        this.currentBatteryLevel+=amount;
+        this.currentBatteryLevel += amount;
     }
     public void useBattery(double amount) {
-        this.currentBatteryLevel-=amount;
+        this.currentBatteryLevel -= amount;
     }
 
     public static void main(String[] args) {
