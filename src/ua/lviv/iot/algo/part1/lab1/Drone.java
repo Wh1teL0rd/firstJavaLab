@@ -36,26 +36,15 @@ public class Drone {
 
     public static void main(String[] args) {
 
-        Drone firstDrone = new Drone(70,600,7000,100);
-        Drone secondDrone = new Drone();
-        Drone instance1 = new Drone();
-
-        instance1 = getInstance();
-
-        Drone instance2 = new Drone();
-
-        instance2 = getInstance();
-
         Drone[] drones = new Drone[4];
 
-        drones[0] = firstDrone;
-        drones[1] = secondDrone;
-        drones[2] = instance1;
-        drones[3] = instance2;
-        int i = 0;
-        while (i<drones.length){
-            System.out.println(drones[i]);
-            i++;
+        drones[0] = new Drone(70,600,7000,100);
+        drones[1] = new Drone();
+        drones[2] = getInstance();
+        drones[3] = getInstance();
+
+        for (Drone drone: drones) {
+            System.out.println(drone);
         }
     }
 }
