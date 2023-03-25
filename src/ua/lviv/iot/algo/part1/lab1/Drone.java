@@ -1,50 +1,19 @@
 package ua.lviv.iot.algo.part1.lab1;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
-public class Drone {
+@ToString
+public abstract class Drone {
     private double currentSpeed;
-    private double currentAltitude;
-    private double batteryCapacity;
-    private double currentBatteryLevel;
-    private static Drone instance;
-
-    public static Drone getInstance() {
-        if(instance == null) {
-            instance = new Drone();
-        }
-        return instance;
-    }
-
-    public void flyAt(double speedMetersPerMinute, double altitude) {
+    private double currentAtlitude;
+    public void flyAt(double speedMetersPerMinute, double alltitude){
         this.currentSpeed = speedMetersPerMinute;
-        this.currentAltitude = altitude;
+        this.currentAtlitude = alltitude;
     }
 
-    public void chargeBattery(double amount) {
-        this.currentBatteryLevel += amount;
-    }
-
-    public void useBattery(double amount) {
-        this.currentBatteryLevel -= amount;
-    }
-
-    public static void main(String[] args) {
-
-        Drone[] drones = new Drone[4];
-
-        drones[0] = new Drone(70,600,7000,100);
-        drones[1] = new Drone();
-        drones[2] = getInstance();
-        drones[3] = getInstance();
-
-        for (Drone drone: drones) {
-            System.out.println(drone);
-        }
-    }
+    public abstract double getMaxFlyingDistanceAtCurrentSpeed();
 }
