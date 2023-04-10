@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PetrolDroneTest {
+public class PetrolDroneTest extends AbstractDroneTest {
     private PetrolDrone baseDrone;
     @BeforeEach
     public void setUp(){
@@ -13,7 +13,6 @@ public class PetrolDroneTest {
         baseDrone.setTypeOfFuel("Kerosin");
         baseDrone.setTankCapacity(200);
         baseDrone.setFuelConsumptionPerHour(20);
-        PetrolDrone someDrone = new PetrolDrone();
     }
 
     @Test
@@ -21,5 +20,10 @@ public class PetrolDroneTest {
         baseDrone.setCurrentSpeed(50.0);
         baseDrone.setFuelConsumptionPerHour(20);
         assertEquals(500, baseDrone.getMaxFlyingDistanceAtCurrentSpeed()); // using delta to account for floating point errors
+    }
+
+    @Test
+    public void testFlyAt() {
+        super.testFlyAt(baseDrone);
     }
 }

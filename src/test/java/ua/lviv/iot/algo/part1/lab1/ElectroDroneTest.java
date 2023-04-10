@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ElectroDroneTest {
+class ElectroDroneTest extends AbstractDroneTest {
     private ElectroDrone baseDrone;
     @BeforeEach
     public void setUp(){
@@ -23,26 +23,29 @@ class ElectroDroneTest {
         ElectroDrone testDrone = new ElectroDrone(100,100,10);
         testDrone.useBattery(30);
 
-
-        assertEquals(70, testDrone.getCurrentBatteryLevel(), 0.0001);
+        assertEquals(70, testDrone.getCurrentBatteryLevel());
 
         testDrone.useBattery(80);
 
-        assertEquals(0, testDrone.getCurrentBatteryLevel(), 0.0001);
+        assertEquals(0, testDrone.getCurrentBatteryLevel());
 
         testDrone.useBattery(10);
 
-        assertEquals(0, testDrone.getCurrentBatteryLevel(), 0.0001);
+        assertEquals(0, testDrone.getCurrentBatteryLevel());
 
     }
 
     @Test
     public void testGetMaxFlyingDistanceAtCurrentSpeed() {
-        baseDrone.setCurrentSpeed(50.0);
+        baseDrone.setCurrentSpeed(50);
 
-        double expectedDistance = 500.0;
         double actualDistance = baseDrone.getMaxFlyingDistanceAtCurrentSpeed();
 
-        assertEquals(expectedDistance, actualDistance);
+        assertEquals(500, actualDistance);
+    }
+
+    @Test
+    public void testFlyAt() {
+        super.testFlyAt(baseDrone);
     }
 }

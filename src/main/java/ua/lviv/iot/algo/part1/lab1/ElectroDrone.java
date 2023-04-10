@@ -28,6 +28,6 @@ public class ElectroDrone extends Drone {
 
     @Override
     public double getMaxFlyingDistanceAtCurrentSpeed() {
-        return this.currentBatteryLevel/this.fuelConsumptionPerHour*this.getCurrentSpeed();
+        return this.currentBatteryLevel / this.fuelConsumptionPerHour * this.getCurrentSpeed();
     }
 }

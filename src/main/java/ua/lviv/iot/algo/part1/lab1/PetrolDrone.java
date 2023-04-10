@@ -13,6 +13,6 @@ public class PetrolDrone extends Drone {
     private double fuelConsumptionPerHour;
     @Override
     public double getMaxFlyingDistanceAtCurrentSpeed() {
-        return this.tankCapacity / this.fuelConsumptionPerHour*this.getCurrentSpeed();
+        return this.tankCapacity / this.fuelConsumptionPerHour * this.getCurrentSpeed();
     }
 }
