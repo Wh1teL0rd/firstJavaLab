@@ -21,7 +21,6 @@ public class DroneManager {
         this.droneList.addAll(drones);
     }
 
-
     public List<Drone> findAltitudeBiggerThan(double altitude) {
         return droneList.stream().filter(drone -> drone.getCurrentAltitude() > altitude).toList();
     }
