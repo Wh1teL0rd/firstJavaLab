@@ -9,10 +9,10 @@ import lombok.ToString;
 @ToString
 public abstract class Drone {
     private double currentSpeed;
-    private double currentAtlitude;
-    public void flyAt(double speedMetersPerMinute, double alltitude){
+    private double currentAltitude;
+    public void flyAt(double speedMetersPerMinute, double altitude) {
         this.currentSpeed = speedMetersPerMinute;
-        this.currentAtlitude = alltitude;
+        this.currentAltitude = altitude;
     }
 
     public abstract double getMaxFlyingDistanceAtCurrentSpeed();
