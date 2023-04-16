@@ -15,4 +15,13 @@ public class PetrolDrone extends Drone {
     public double getMaxFlyingDistanceAtCurrentSpeed() {
         return this.tankCapacity / this.fuelConsumptionPerHour * this.getCurrentSpeed();
     }
+
+    public String getHeaders(){
+        return super.getHeaders() + ", tankCapacity, typeOfFuel, fuelConsumptionPerHour";
+    }
+
+    public String toCSV() {
+        return super.toCSV() + "," + tankCapacity +
+                "," + typeOfFuel + "," + fuelConsumptionPerHour;
+    }
 }

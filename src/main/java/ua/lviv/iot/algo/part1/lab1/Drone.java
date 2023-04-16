@@ -15,5 +15,13 @@ public abstract class Drone {
         this.currentAltitude = altitude;
     }
 
+    public String getHeaders(){
+        return "currentSpeed, currentAltitude";
+    }
+
+    public String toCSV(){
+        return String.format("%.1f,%.1f",currentSpeed,currentAltitude);
+    }
+
     public abstract double getMaxFlyingDistanceAtCurrentSpeed();
 }

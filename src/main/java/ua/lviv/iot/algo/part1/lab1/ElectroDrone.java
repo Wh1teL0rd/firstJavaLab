@@ -30,4 +30,15 @@ public class ElectroDrone extends Drone {
     public double getMaxFlyingDistanceAtCurrentSpeed() {
         return this.currentBatteryLevel / this.fuelConsumptionPerHour * this.getCurrentSpeed();
     }
+
+    public String getHeaders(){
+        return super.getHeaders() + "," +
+                "batteryCapacity, currentBatteryLevel, fuelConsumptionPerHour";
+    }
+
+    public String toCSV(){
+        return super.toCSV() + "," + batteryCapacity +
+                "," + currentBatteryLevel +
+                "," + fuelConsumptionPerHour;
+    }
 }

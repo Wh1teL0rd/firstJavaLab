@@ -1,0 +1,6 @@
+currentSpeed, currentAltitude,batteryCapacity, currentBatteryLevel, fuelConsumptionPerHour
+0.0,0.0,1000.0,500.0,300.0
+0.0,0.0,900.0,800.0,200.0
+currentSpeed, currentAltitude, tankCapacity, typeOfFuel, fuelConsumptionPerHour
+0.0,0.0,300.0,Gasoline,150.0
+0.0,0.0,250.0,Kerosin,130.0
