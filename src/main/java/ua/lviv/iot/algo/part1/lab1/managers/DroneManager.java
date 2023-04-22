@@ -1,8 +1,9 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.lab1.managers;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import ua.lviv.iot.algo.part1.lab1.models.Drone;
 
 import java.util.ArrayList;
 import java.util.List;
