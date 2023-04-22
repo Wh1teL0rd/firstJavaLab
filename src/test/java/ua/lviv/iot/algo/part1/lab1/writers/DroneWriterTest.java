@@ -1,6 +1,7 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.lab1.writers;
 
 import org.junit.jupiter.api.*;
+import ua.lviv.iot.algo.part1.lab1.models.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,13 +23,16 @@ public class DroneWriterTest {
     private File actualFile;
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         droneList = new ArrayList<>();
         droneWriter = new DroneWriter();
         droneList.add(new ElectroDrone(1000, 500, 300));
         droneList.add(new PetrolDrone(300, "Gasoline", 150));
         droneList.add(new ElectroDrone(900, 800, 200));
         droneList.add(new PetrolDrone(250, "Kerosin", 130));
+        droneList.add(new CombatDrone(6, 5, 4000));
+        droneList.add(new DeliveryDrone(200, 4000, 20));
+        droneList.add(new CombatDrone(2, 1, 3000));
         actualFile = new File(RESULT_FILENAME);
     }
 

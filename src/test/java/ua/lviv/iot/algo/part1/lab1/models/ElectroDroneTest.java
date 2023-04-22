@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.lab1.models;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,20 +7,21 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ElectroDroneTest extends AbstractDroneTest {
     private ElectroDrone baseDrone;
+
     @BeforeEach
-    public void setUp(){
-        baseDrone = new ElectroDrone(8000,7000,700);
+    public void setUp() {
+        baseDrone = new ElectroDrone(8000, 7000, 700);
     }
 
     @Test
-    public void testChargeBattery(){
+    public void testChargeBattery() {
         baseDrone.chargeBattery(1200);
-        assertEquals(8000,baseDrone.getBatteryCapacity());
+        assertEquals(8000, baseDrone.getBatteryCapacity());
     }
 
     @Test
-    public void testUseBattery(){
-        ElectroDrone testDrone = new ElectroDrone(100,100,10);
+    public void testUseBattery() {
+        ElectroDrone testDrone = new ElectroDrone(100, 100, 10);
         testDrone.useBattery(30);
 
         assertEquals(70, testDrone.getCurrentBatteryLevel());

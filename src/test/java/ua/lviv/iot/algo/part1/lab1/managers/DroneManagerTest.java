@@ -1,7 +1,8 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.lab1.managers;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ua.lviv.iot.algo.part1.lab1.models.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,13 +17,15 @@ public class DroneManagerTest {
     public void setUp() {
         droneManager = new DroneManager();
         List<Drone> drones = new ArrayList<>();
-        drones.add(new ElectroDrone(8000,7000,900));
-        drones.add(new ElectroDrone(9600,9000,1000));
-        drones.add(new PetrolDrone(20,"Benzin",2));
+        drones.add(new ElectroDrone(8000, 7000, 900));
+        drones.add(new ElectroDrone(9600, 9000, 1000));
+        drones.add(new PetrolDrone(20, "Benzin", 2));
+        drones.add(new CombatDrone());
+        drones.add(new DeliveryDrone());
         droneManager.addDrones(drones);
-        droneManager.getDroneList().get(0).flyAt(40,250);
-        droneManager.getDroneList().get(1).flyAt(35,110);
-        droneManager.getDroneList().get(2).flyAt(25,280);
+        droneManager.getDroneList().get(0).flyAt(40, 250);
+        droneManager.getDroneList().get(1).flyAt(35, 110);
+        droneManager.getDroneList().get(2).flyAt(25, 280);
     }
 
     @Test
@@ -34,7 +37,7 @@ public class DroneManagerTest {
 
     @Test
     void testAddDrones() {
-        ElectroDrone testDrone = new ElectroDrone(180,30,20);
+        ElectroDrone testDrone = new ElectroDrone(180, 30, 20);
         droneManager.addDrones(Arrays.asList(testDrone));
         assertTrue(droneManager.getDroneList().contains(testDrone));
     }

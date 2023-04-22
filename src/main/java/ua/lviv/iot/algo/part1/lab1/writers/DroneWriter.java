@@ -1,10 +1,10 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.lab1.writers;
+
+import ua.lviv.iot.algo.part1.lab1.models.Drone;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DroneWriter {
     public void writeToFile(List<Drone> drones, String fileName) throws IOException {
@@ -13,14 +13,14 @@ public class DroneWriter {
         }
 
         FileWriter writer = new FileWriter(fileName);
-        Map<String, Boolean> headerMap = new HashMap<>();
+        Set<String> writtenHeaders = new HashSet<>();
 
-        drones.sort((d1, d2) -> d1.getClass().getSimpleName().compareTo(d2.getClass().getSimpleName()));
+        drones.sort(Comparator.comparing(d -> d.getClass().getSimpleName()));
 
-        for(Drone drone : drones){
-            if(!headerMap.containsKey(drone.getClass().getSimpleName())){
+        for (Drone drone : drones) {
+            if (!writtenHeaders.contains(drone.getClass().getSimpleName())) {
                 writer.write(drone.getHeaders() + "\n");
-                headerMap.put(drone.getClass().getSimpleName(), true);
+                writtenHeaders.add(drone.getClass().getSimpleName());
             }
             writer.write(drone.toCSV() + "\n");
         }

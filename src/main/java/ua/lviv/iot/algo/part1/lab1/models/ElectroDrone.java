@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.lab1.models;
 
 import lombok.*;
 
@@ -14,14 +14,14 @@ public class ElectroDrone extends Drone {
 
     public void chargeBattery(double amount) {
         this.currentBatteryLevel += amount;
-        if(this.currentBatteryLevel > this.batteryCapacity){
+        if (this.currentBatteryLevel > this.batteryCapacity) {
             this.currentBatteryLevel = this.batteryCapacity;
         }
     }
 
     public void useBattery(double amount) {
         this.currentBatteryLevel -= amount;
-        if (this.currentBatteryLevel < 0){
+        if (this.currentBatteryLevel < 0) {
             this.currentBatteryLevel = 0;
         }
     }
@@ -31,12 +31,12 @@ public class ElectroDrone extends Drone {
         return this.currentBatteryLevel / this.fuelConsumptionPerHour * this.getCurrentSpeed();
     }
 
-    public String getHeaders(){
+    public String getHeaders() {
         return super.getHeaders() + "," +
-                "batteryCapacity, currentBatteryLevel, fuelConsumptionPerHour";
+                "batteryCapacity,currentBatteryLevel,fuelConsumptionPerHour";
     }
 
-    public String toCSV(){
+    public String toCSV() {
         return super.toCSV() + "," + batteryCapacity +
                 "," + currentBatteryLevel +
                 "," + fuelConsumptionPerHour;

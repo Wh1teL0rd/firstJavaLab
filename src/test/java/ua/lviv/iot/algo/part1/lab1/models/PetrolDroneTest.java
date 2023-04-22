@@ -1,4 +1,4 @@
-package ua.lviv.iot.algo.part1.lab1;
+package ua.lviv.iot.algo.part1.lab1.models;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -7,9 +7,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PetrolDroneTest extends AbstractDroneTest {
     private PetrolDrone baseDrone;
+
     @BeforeEach
-    public void setUp(){
-        baseDrone = new PetrolDrone(100,"Benzin", 10);
+    public void setUp() {
+        baseDrone = new PetrolDrone(100, "Benzin", 10);
         baseDrone.setTypeOfFuel("Kerosin");
         baseDrone.setTankCapacity(200);
         baseDrone.setFuelConsumptionPerHour(20);
